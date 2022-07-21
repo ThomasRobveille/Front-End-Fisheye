@@ -41,18 +41,23 @@ function photographerFactory(data) {
         const header = document.querySelector('.photograph-header');
 
         const h1 = document.createElement('h1');
-        const adresse = document.createElement('address');
-        const citation = document.createElement('blockquote');
+        const info = document.createElement('div');
+        const adresse = document.createElement('div');
+        const citation = document.createElement('div');
         const img = document.createElement('img');
 
         h1.innerText = name;
         adresse.innerText = `${city}, ${country}`;
         citation.innerText = `${tagline}`;
         img.src = picture;
+        img.className = "photograph-picture";
+        img.alt = "photo du photographe";
 
-        header.insertBefore(citation, header.firstElementChild);
-        header.insertBefore(adresse, header.firstElementChild);
-        header.insertBefore(h1, header.firstElementChild);
+        
+        info.insertBefore(adresse, info.firstElementChild);
+        info.insertBefore(citation, info.firstElementChild);
+        info.insertBefore(h1, info.firstElementChild);
+        header.insertBefore(info, header.firstElementChild);
         header.appendChild(img);
     }
 

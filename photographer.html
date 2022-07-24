@@ -13,33 +13,63 @@
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button" onclick="displayModal('contact_modal')">Contactez-moi</button>
       </div>
     </main>
+
+    <div class="bgtransp">
+    </div>
+    
     <div id="contact_modal">
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" class="close" onclick="closeModal('contact_modal')"/>
         </header>
 				<form>
 					<div>
 						<label>Prénom</label>
-						<input />
+						<input type="text" id="name"/>
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <button class="contact_button" id="buttonForm">Envoyer</button>
 				</form>
 			</div>
 		</div>
+
     <section class="portfolio">
       <strong>Trier par</strong>
       <select class="trier"></select>
       <div class="photos-container"></div>
     </section>
+
+    <div id="lightbox">
+      <div class="lightbox_bg">
+        <div class="control_lightbox_img">
+          <img src="assets/icons/gauche.png" onclick="previousImg()"/>
+          <img src="" id="imgDyn" class="imgDyn"/>
+          <img src="assets/icons/droit.png" onclick="nextImg()"/>
+        </div>
+        <h3 class="title"></h3>
+        <img src="assets/icons/closeRed.png" alt="close button" onclick="closeModal('lightbox')" class="closeLightbox"/>
+      </div>      
+    </div>
+    <!-- <div id="photo_modal">
+      <div class="modal" id="modal">
+        <img src="assets/icons/close.svg" class="close"/>
+        <div>
+          <div class="previous"><img src="assets/icons/gauche.png"/></div>
+          <div class="photo-details">
+            <img alt="big photo" class="photo" alt="temp-img"/>
+            <h3></h3>
+          </div>
+          <div class="next"><img src="assets/icons/droit.png"/></div>
+        </div>
+      </div>
+    </div> -->
     
     <script src="scripts/factories/photographer.js"></script>
     <script src="scripts/factories/photos.js"></script>
     <script src="scripts/pages/photographer.js"></script>
-    <script src="scripts/utils/contactForm.js"></script>
+    <script src="scripts/utils/modals.js"></script>
   </body>
 </html>

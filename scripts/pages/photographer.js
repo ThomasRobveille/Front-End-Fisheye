@@ -27,7 +27,7 @@ function displayPhotos(name, photos) {
 
   photos.forEach(photo => {
     const photosModel = photosFactory(name, photo);
-    const photosDOM = photosModel.getUserCardDOM();
+    const photosDOM = photosModel.getPhotoCardDOM();
     photosContainer.appendChild(photosDOM);
   });  
 }
@@ -40,7 +40,6 @@ async function getPhotographeData() {
 
   const photos = await getPhotos();
   const photographePhotos = photos.filter(photo => photo.photographerId == id);
-  console.log(photographePhotos);
   const name = photographer.name;
   displayPhotos(name, photographePhotos);
 };

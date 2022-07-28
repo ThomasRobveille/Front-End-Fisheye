@@ -15,6 +15,13 @@ function photosFactory(name, data) {
     const h3 = document.createElement('h3');
     const note = document.createElement('div');
 
+    const like = document.createElement('img');
+    like.src = 'assets/icons/favIcon.png';
+    like.classList.add('like');
+    like.id = 'like' + id
+    like.setAttribute('onclick', 'addLike(' + id + ')');
+    like.alt = 'like';    
+
     if (media == 'image') {
       img.setAttribute('onclick', 'displayLightbox(' + id + ')');
       img.src = picture;
@@ -31,7 +38,9 @@ function photosFactory(name, data) {
     }
 
     h3.innerText = title;
-    note.innerText = `${likes} likes`;
+    note.id = 'note' + id;
+    note.innerText = `${likes}`;
+    note.appendChild(like);
     info.className = "photo-info";
 
     

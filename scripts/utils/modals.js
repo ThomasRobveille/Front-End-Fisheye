@@ -140,6 +140,21 @@ document.addEventListener('keyup', function(target) {
   }
 })
 
+//Ajout des likes
+async function addLike(ElemId){
+  const photos = await getPhotos();
+  const photo = photos.find(photo => photo.id == ElemId);
+  photo.likes = photo.likes + 1;
+  const note = document.getElementById(`note${ElemId}`)
+  note.innerText = photo.likes;
+
+  const like = document.createElement('img');
+  like.src = 'assets/icons/favIcon.png';
+  like.classList.add('like');
+  like.alt = 'like'; 
+
+  note.appendChild(like);
+}
 
 // function initModals() {
 //   const contact = document.querySelector('.contact_button');

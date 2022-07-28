@@ -134,7 +134,7 @@ form input {
 .lightbox_bg{
     background: white;
     width: 80%;
-    height: 80%;
+    height: 550px;
 }
 
 .control_lightbox_img {
@@ -156,6 +156,12 @@ form input {
 }
 
 .imgDyn{
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+}
+
+.vidDyn{
     width: 500px;
     height: 500px;
     object-fit: cover;

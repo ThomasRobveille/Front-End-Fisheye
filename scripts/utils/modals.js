@@ -1,5 +1,5 @@
 //Variable global
-let mediaId, firstname, media;
+let mediaId, firstname, media, lightboxUp;
 
 
 //Système ouverture/fermeture de modal
@@ -16,11 +16,11 @@ function closeModal(modalId) {
 async function displayLightbox(ElemId){
   const lightbox = document.getElementById('lightbox');
   lightbox.style.display = "flex";
+  lightboxUp = true;
   mediaId = ElemId;
 
   const photos = await getPhotos();
   const photo = photos.find(photo => photo.id == ElemId);
-  console.log(photo)
 
   const photographers = await getPhotographers();
   const id = window.location.href.split('?')[1];
@@ -33,10 +33,11 @@ async function displayLightbox(ElemId){
 
   if(photo.image){
     img.src = `assets/photographers/${firstname}/${photo.image}`;
+    img.style.display = "block";
     video.style.display = "none";
   } else if (photo.video) {
-    console.log(`assets/photographers/${firstname}/${photo.video}`)
     video.src = `assets/photographers/${firstname}/${photo.video}`;
+    video.style.display = "block";
     img.style.display = "none";
   }
 
@@ -55,18 +56,37 @@ buttonForm.addEventListener('click', function(e) {
 //fonction de passage de photo/vidéo 
 async function previousImg() {
   const img = document.getElementById('imgDyn');
+  const vid = document.getElementById('vidDyn');
   const id = window.location.href.split('?')[1];
-  const photos = await getPhotos();
-  const photographePhotos = photos.filter(photo => photo.photographerId == id);
+  const medias = await getPhotos();
+  const photographeMedias = medias.filter(media => media.photographerId == id);
   let imgId;
-  for(i = 0; i < photographePhotos.length; i++) {
-    if(photographePhotos[i].id == mediaId) {
+  for(i = 0; i < photographeMedias.length; i++) {
+    if(photographeMedias[i].id == mediaId) {
       if(i == 0) {
-        img.src = `assets/photographers/${firstname}/${photographePhotos[photographePhotos.length - 1].image}`;
-        imgId = photographePhotos[photographePhotos.length - 1].id;
+        if(photographeMedias[photographeMedias.length - 1].image) {
+          img.src = `assets/photographers/${firstname}/${photographeMedias[photographeMedias.length - 1].image}`;
+          img.style.display = "block";
+          vid.style.display = "none";
+          imgId = photographeMedias[photographeMedias.length - 1].id;
+        } else {
+          vid.src = `assets/photographers/${firstname}/${photographeMedias[photographeMedias.length - 1].video}`;
+          vid.style.display = "block";
+          img.style.display = "none";
+          imgId = photographeMedias[photographeMedias.length - 1].id;
+        }
       } else {
-        img.src = `assets/photographers/${firstname}/${photographePhotos[i-1].image}`;
-        imgId = photographePhotos[i-1].id;
+        if(photographeMedias[i-1].image) {
+          img.src = `assets/photographers/${firstname}/${photographeMedias[i-1].image}`;
+          img.style.display = "block";
+          vid.style.display = "none";
+          imgId = photographeMedias[i-1].id;
+        } else {
+          vid.src = `assets/photographers/${firstname}/${photographeMedias[i-1].video}`;
+          vid.style.display = "block";
+          img.style.display = "none";
+          imgId = photographeMedias[i-1].id;
+        }
       }
     }
   }
@@ -75,23 +95,50 @@ async function previousImg() {
 
 async function nextImg() {
   const img = document.getElementById('imgDyn');
+  const vid = document.getElementById('vidDyn');
   const id = window.location.href.split('?')[1];
-  const photos = await getPhotos();
-  const photographePhotos = photos.filter(photo => photo.photographerId == id);
+  const medias = await getPhotos();
+  const photographeMedias = medias.filter(media => media.photographerId == id);
   let imgId;
-  for(i = 0; i < photographePhotos.length; i++) {
-    if(photographePhotos[i].id == photoId) {
-      if(i == photographePhotos.length - 1) {
-        img.src = `assets/photographers/${firstname}/${photographePhotos[0].image}`;
-        imgId = photographePhotos[0].id;
+  for(i = 0; i < photographeMedias.length; i++) {
+    if(photographeMedias[i].id == mediaId) {
+      if(i == photographeMedias.length - 1) {        
+        if(photographeMedias[0].image) {
+          img.src = `assets/photographers/${firstname}/${photographeMedias[0].image}`;
+          img.style.display = "block";
+          vid.style.display = "none";
+          imgId = photographeMedias[0].id;
+        } else {
+          vid.src = `assets/photographers/${firstname}/${photographeMedias[0].video}`;
+          vid.style.display = "block";
+          img.style.display = "none";
+          imgId = photographeMedias[0].id;
+        }
       } else {
-        img.src = `assets/photographers/${firstname}/${photographePhotos[i+1].image}`;
-        imgId = photographePhotos[i+1].id;
+        if(photographeMedias[i+1].image) {        
+          img.src = `assets/photographers/${firstname}/${photographeMedias[i+1].image}`;
+          img.style.display = "block";
+          vid.style.display = "none";
+          imgId = photographeMedias[i+1].id;
+        } else {
+          vid.src = `assets/photographers/${firstname}/${photographeMedias[i+1].video}`;
+          vid.style.display = "block";
+          img.style.display = "none";
+          imgId = photographeMedias[i+1].id;
+        }
       }
     }
   }
   mediaId = imgId;
 }
+
+document.addEventListener('keyup', function(target) {
+  if(target.code == "ArrowRight" && lightboxUp == true){
+    nextImg();
+  } else if (target.code == "ArrowLeft" && lightboxUp == true) {
+    previousImg();
+  }
+})
 
 
 // function initModals() {

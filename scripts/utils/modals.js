@@ -156,95 +156,37 @@ async function addLike(ElemId){
   note.appendChild(like);
 }
 
-// function initModals() {
-//   const contact = document.querySelector('.contact_button');
-//   const previous = document.querySelector('.previous');
-//   const next = document.querySelector('.next');
+async function sumLike(){
+  const medias = await getPhotos();
+  const id = window.location.href.split('?')[1];
+  const photographeMedias = medias.filter(media => media.photographerId == id);
+  
+  let sumLike = 0;
+  photographeMedias.forEach(element => {
+    sumLike = sumLike + element.likes;
+  });
 
-//   contact.onclick = () => { displayModal('contact_modal') };
-//   previous.onclick = () => { previousPhoto() };
-//   next.onclick = () => { nextPhoto() };
-//   document.querySelectorAll('.modal').forEach(modal => {
-//       const parent = modal.parentElement;
-//       const close = modal.querySelector('.close');
-//       close.onclick = () => { closeModal(parent) };
-//   })
-// }
+  const likeImg = document.createElement('img');
+  likeImg.src = 'assets/icons/favIcon.png';
+  likeImg.classList.add('like');
+  likeImg.alt = 'like'; 
 
+  const photographer = await getPhotographers();
+  const photographe = photographer.find(photographe => photographe.id == id);
 
-// function displayModal(name) {
-//   const modal = document.querySelector(`#${name}`);
-//   const bgtransp = document.querySelector('.bgtransp');
-//   modal.style.display = 'flex';
-//   bgtransp.style.display = 'block';
-// }
+  const divTotalLike = document.getElementById('totalLike');
+  const div = document.createElement('div');
+  const p = document.createElement('p');
+  p.innerText = `${sumLike}`;
 
-// function closeModal(parent) {
-//   const bgtransp = document.querySelector('.bgtransp');
-//   bgtransp.style.display = 'none';
-//   parent.style.display = 'none';
-// }
+  const prix = document.createElement('p');
+  prix.innerText = `${photographe.price}€/jour`;
 
-// function previousPhoto() {
-//   const photo = document.querySelector('#photo_modal .photo');
-//   const h3 = document.querySelector('#photo_modal h3');
-//   const id = photos.indexOf(photos.filter(photo => photo.image == selectedMedia)[0]);
+  div.appendChild(p);
+  div.appendChild(likeImg);
+  divTotalLike.appendChild(div);
+  divTotalLike.appendChild(prix);
 
-//   if (id > 0) {
-//       const newMedia = photos[id - 1];
-//       const media = newMedia.image ? 'image' : 'video';
-//       photo.src = `assets/photos/${firstname}/${newMedia[media]}`;
-//       h3.innerText = newMedia.title;
-//       selectedMedia = newMedia[media];
-//   }
-// }
+}
 
-// function nextPhoto() {
-//   const photo = document.querySelector('#photo_modal .photo');
-//   const h3 = document.querySelector('#photo_modal h3');
-//   const id = photos.indexOf(photos.filter(photo => photo.image == selectedMedia)[0]);
-
-//   if (id < photos.length - 1) {
-//       const newMedia = photos[id + 1];
-//       const media = newMedia.image ? 'image' : 'video';
-//       photo.src = `assets/photos/${firstname}/${newMedia[media]}`;
-//       h3.innerText = newMedia.title;
-//       selectedMedia = newMedia[media];
-//   }
-// }
-
-// initModals(); 
-
-
-
-// function start() {
-//   let photos = document.querySelectorAll('.photos-picture');
-//   console.log(photos);
-
-
-//   // photos.forEach(e => {
-//   //   e.onclick = (item) => {
-//   //     const idPhoto = item.id;
-//   //     console.log(idPhoto);
-//   //   }
-//   // });
-
-//   // photo.onclick = (e) => {
-//   //   //openModal();
-//   //   const idPhoto = e.getAttribute('id');
-//   //   console.log(idPhoto)
-//   // }
-// } 
-
-
-// //Ouverture/Fermeture modal
-// function openModal() {
-//   document.getElementById("modal").style.display = "flex";
-// }
-
-// function closeModal() {
-//   document.getElementById("modal").style.display = "none";
-// }
-
-// start();
-
+sumLike();

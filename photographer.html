@@ -29,7 +29,19 @@
 				<form>
 					<div>
 						<label>Prénom</label>
-						<input type="text" id="name"/>
+						<input type="text" id="firstname"/>
+					</div>
+          <div>
+						<label>Nom</label>
+						<input type="text" id="lastname"/>
+					</div>
+          <div>
+						<label>Email</label>
+						<input type="email" id="email"/>
+					</div>
+          <div>
+						<label>message</label>
+						<textfield type="text" id="message"/>
 					</div>
           <button class="contact_button" id="buttonForm">Envoyer</button>
 				</form>
@@ -46,11 +58,14 @@
       <div class="lightbox_bg">
         <div class="control_lightbox_img">
           <img src="assets/icons/gauche.png" onclick="previousImg()"/>
-          <img src="" id="imgDyn" class="imgDyn"/>
+          <div class="mediaBox">
+            <img src="" id="imgDyn" class="imgDyn"/>
+            <h3 id="titleDyn" class="titleDyn"></h3>
+          </div>          
           <video src="" id="vidDyn" class="vidDyn" controls></video>
           <img src="assets/icons/droit.png" onclick="nextImg()"/>
         </div>
-        <h3 class="title"></h3>
+        
         <img src="assets/icons/closeRed.png" alt="close button" onclick="closeModal('lightbox')" class="closeLightbox"/>
       </div>      
     </div>

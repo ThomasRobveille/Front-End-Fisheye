@@ -16,7 +16,7 @@ function photosFactory(name, data) {
     const note = document.createElement('div');
 
     const like = document.createElement('img');
-    like.src = 'assets/icons/favIcon.png';
+    like.src = 'assets/icons/favIconRed.png';
     like.classList.add('like');
     like.id = 'like' + id
     like.setAttribute('onclick', 'addLike(' + id + ')');

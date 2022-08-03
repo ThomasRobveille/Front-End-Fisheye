@@ -1,5 +1,6 @@
 //Variable global
 let mediaId, firstname, media, lightboxUp;
+let addLikeCount = 0;
 
 
 //Système ouverture/fermeture de modal
@@ -30,6 +31,8 @@ async function displayLightbox(ElemId){
 
   const img = document.getElementById('imgDyn');
   const video = document.getElementById('vidDyn');
+  const title = document.getElementById('titleDyn');
+  title.innerHTML = photo.title;
 
   if(photo.image){
     img.src = `assets/photographers/${firstname}/${photo.image}`;
@@ -40,7 +43,6 @@ async function displayLightbox(ElemId){
     video.style.display = "block";
     img.style.display = "none";
   }
-
 }
 
 
@@ -149,9 +151,24 @@ async function addLike(ElemId){
   note.innerText = photo.likes;
 
   const like = document.createElement('img');
-  like.src = 'assets/icons/favIcon.png';
+  like.src = 'assets/icons/favIconRed.png';
   like.classList.add('like');
   like.alt = 'like'; 
+  
+  const medias = await getPhotos();
+  const id = window.location.href.split('?')[1];
+  const photographeMedias = medias.filter(media => media.photographerId == id);
+  
+  let sumLike = 0;
+  photographeMedias.forEach(element => {
+    sumLike = sumLike + element.likes;
+  });
+
+  addLikeCount = addLikeCount + 1;
+  sumLike = sumLike + addLikeCount;
+
+  const divSumLike = document.getElementById('sumLike');
+  divSumLike.innerText = sumLike;
 
   note.appendChild(like);
 }
@@ -167,7 +184,7 @@ async function sumLike(){
   });
 
   const likeImg = document.createElement('img');
-  likeImg.src = 'assets/icons/favIcon.png';
+  likeImg.src = 'assets/icons/favIconBlack.png';
   likeImg.classList.add('like');
   likeImg.alt = 'like'; 
 
@@ -177,7 +194,8 @@ async function sumLike(){
   const divTotalLike = document.getElementById('totalLike');
   const div = document.createElement('div');
   const p = document.createElement('p');
-  p.innerText = `${sumLike}`;
+  p.id = 'sumLike';
+  p.innerText = `${sumLike + addLikeCount}`;
 
   const prix = document.createElement('p');
   prix.innerText = `${photographe.price}€/jour`;
@@ -186,7 +204,6 @@ async function sumLike(){
   div.appendChild(likeImg);
   divTotalLike.appendChild(div);
   divTotalLike.appendChild(prix);
-
 }
 
-sumLike();
+sumLike(0);

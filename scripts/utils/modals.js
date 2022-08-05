@@ -46,11 +46,11 @@ async function displayLightbox(ElemId){
 }
 
 //Système de tri des photos
-let selectElem = document.getElementById('trier');
-selectElem.addEventListener('change', function() {
-  let valueElem = selectElem.options[selectElem.selectedIndex].value;
-  sortBy(valueElem);
-})
+// let selectElem = document.getElementById('trier');
+// selectElem.addEventListener('change', function() {
+//   let valueElem = selectElem.options[selectElem.selectedIndex].value;
+//   sortBy(valueElem);
+// })
 
 async function sortBy(type){
   const id = window.location.href.split('?')[1];
@@ -76,7 +76,11 @@ async function sortBy(type){
 const buttonForm = document.getElementById('buttonForm');
 buttonForm.addEventListener('click', function(e) {
   e.preventDefault();
-  const InputForm = document.getElementById('name').value;
+  const InputForm = new Object();
+  InputForm.firstName = document.getElementById('firstname').value;
+  InputForm.lastName = document.getElementById('lastname').value;
+  InputForm.email = document.getElementById('email').value;
+  InputForm.text = document.getElementById('message').value;
   console.log(InputForm);
   closeModal('contact_modal');
 })

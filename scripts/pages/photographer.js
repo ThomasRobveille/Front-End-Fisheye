@@ -23,7 +23,8 @@ async function displayData(photographer) {
 }
 
 function displayPhotos(name, photos) {
-  const photosContainer = document.querySelector('.photos-container');
+  const photosContainer = document.querySelector('#photos-container');
+  photosContainer.innerHTML = '';
 
   photos.forEach(photo => {
     const photosModel = photosFactory(name, photo);
@@ -41,6 +42,8 @@ async function getPhotographeData() {
   const photos = await getPhotos();
   const photographePhotos = photos.filter(photo => photo.photographerId == id);
   const name = photographer.name;
+  const photosContainer = document.querySelector('#photos-container');
+  photosContainer.innerHTML = '';
   displayPhotos(name, photographePhotos);
 };
 

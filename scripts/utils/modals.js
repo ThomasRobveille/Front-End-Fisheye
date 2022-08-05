@@ -45,6 +45,32 @@ async function displayLightbox(ElemId){
   }
 }
 
+//Système de tri des photos
+let selectElem = document.getElementById('trier');
+selectElem.addEventListener('change', function() {
+  let valueElem = selectElem.options[selectElem.selectedIndex].value;
+  sortBy(valueElem);
+})
+
+async function sortBy(type){
+  const id = window.location.href.split('?')[1];
+  const medias = await getPhotos();
+  const photographers = await getPhotographers();
+  const photographer = photographers.filter(photographer => photographer.id == id)[0];
+  const photographeMedias = medias.filter(media => media.photographerId == id);
+
+  if(type == 'date') {
+    photographeMedias.sort((a, b) => a.dates - b.dates);
+    displayPhotos(photographer.name, photographeMedias);
+  } else if(type == 'pop') {
+    photographeMedias.sort((a, b) => a.likes - b.likes);
+    displayPhotos(photographer.name, photographeMedias);
+  } else if(type == 'title') {
+    photographeMedias.sort((a, b) => a.title.localeCompare(b.title));
+    displayPhotos(photographer.name, photographeMedias);
+  }
+
+}
 
 //Récupération du formulaire de contact sans rechargement
 const buttonForm = document.getElementById('buttonForm');

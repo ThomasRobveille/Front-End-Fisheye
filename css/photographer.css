@@ -1,3 +1,15 @@
+h2{
+    color: #d3573c;
+    font-weight: 400;
+    font-size: 42px;
+}
+
+.photograph-adresse{
+    color: #a24141;
+    font-weight: 400;
+    font-size: 24px;
+}
+
 #contact_modal {
     display: none;
     position: fixed;
@@ -299,29 +311,15 @@ textarea{
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    width: 18%;
+    width: 20%;
+    height: 100px;
   }
-
-  /* .formfield::after{
-    content: '';
-    position: relative;
-    top: -28px;
-    right: -95px;
-    display: block;
-    width: 0;
-    height: 0;
-    border-color: transparent;
-    border-top-color: #f9f9f9;
-    border-width: 6px;
-    border-style: solid;
-    pointer-events: none;
-  } */
 
   .trier{
     background: #901c1c;
     color: white;
-    width: 120px;
-    height: 50px;
+    width: 150px;
+    height: 60px;
     border-radius: 10px;
     font-size: 15px;
     padding: 0 5px;
@@ -330,19 +328,34 @@ textarea{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    position: absolute;
+    top: 53%;
+    left: 18%;
   }
 
   .trier:hover{
-    height: 150px;
+    height: 180px;
     float: left;
+  }
+
+  .trier:hover .arrowDown{
+    transform: rotate(180deg);
   }
 
   .dropdown{
     width: 100%;
-    margin: 6px 10px;
+    margin: 0px 10px;
     list-style-type: none;
     padding: 1px 0;
     z-index: 999;
+  }
+
+  .dropdown:first-child{
+    width: 88%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .dropdown_btn{
@@ -353,5 +366,12 @@ textarea{
     border-bottom: 1px solid white;
     font-size: 20px;
     font-weight: bold;
-    padding: 10px 0;
+    padding: 18px 0;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .arrowDown{
+    width:10px;
+    height:10px;
   }

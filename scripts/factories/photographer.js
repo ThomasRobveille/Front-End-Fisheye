@@ -40,23 +40,23 @@ function photographerFactory(data) {
     function setPhotographerPage() {
         const header = document.querySelector('.photograph-header');
 
-        const h1 = document.createElement('h1');
+        const h2 = document.createElement('h2');
         const info = document.createElement('div');
         const adresse = document.createElement('div');
         const citation = document.createElement('div');
         const img = document.createElement('img');
 
-        h1.innerText = name;
+        h2.innerText = name;
         adresse.innerText = `${city}, ${country}`;
+        adresse.className = "photograph-adresse";
         citation.innerText = `${tagline}`;
         img.src = picture;
         img.className = "photograph-picture";
         img.alt = "photo du photographe";
 
-        
-        info.insertBefore(adresse, info.firstElementChild);
         info.insertBefore(citation, info.firstElementChild);
-        info.insertBefore(h1, info.firstElementChild);
+        info.insertBefore(adresse, info.firstElementChild);        
+        info.insertBefore(h2, info.firstElementChild);
         header.insertBefore(info, header.firstElementChild);
         header.appendChild(img);
     }

@@ -63,7 +63,7 @@ async function sortBy(type){
     photographeMedias.sort((a, b) => a.dates - b.dates);
     displayPhotos(photographer.name, photographeMedias);
   } else if(type == 'pop') {
-    photographeMedias.sort((a, b) => a.likes - b.likes);
+    photographeMedias.sort((a, b) => b.likes - a.likes);
     displayPhotos(photographer.name, photographeMedias);
   } else if(type == 'title') {
     photographeMedias.sort((a, b) => a.title.localeCompare(b.title));

@@ -15,66 +15,69 @@
       <div class="photograph-header">
         <button class="contact_button" onclick="displayModal('contact_modal')">Contactez-moi</button>
       </div>
-    </main>
-
-    <div class="bgtransp">
-    </div>
-    
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" class="close" onclick="closeModal('contact_modal')"/>
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input type="text" id="firstname"/>
-					</div>
-          <div>
-						<label>Nom</label>
-						<input type="text" id="lastname"/>
-					</div>
-          <div>
-						<label>Email</label>
-						<input type="email" id="email"/>
-					</div>
-          <div>
-						<label>message</label>
-						<textfield type="text" id="message"/>
-					</div>
-          <button class="contact_button" id="buttonForm">Envoyer</button>
-				</form>
-			</div>
-		</div>
-
-    <section class="portfolio">
-      <strong>Trier par</strong>
-      <select id="trier" class="trier">
-        <option value="pop">Popularité</option>
-        <option value="date">Date</option>
-        <option value="title">Titre</option>
-      </select>
-      <div id="photos-container" class="photos-container"></div>
-    </section>
-
-    <div id="lightbox">
-      <div class="lightbox_bg">
-        <div class="control_lightbox_img">
-          <img src="assets/icons/gauche.png" onclick="previousImg()"/>
-          <div class="mediaBox">
-            <img src="" id="imgDyn" class="imgDyn"/>
-            <h3 id="titleDyn" class="titleDyn"></h3>
-          </div>          
-          <video src="" id="vidDyn" class="vidDyn" controls></video>
-          <img src="assets/icons/droit.png" onclick="nextImg()"/>
+      <div class="bgtransp">
+      </div>
+      
+      <div id="contact_modal">
+        <div class="modal">
+          <header>
+            <h2>Contactez-moi</h2>
+            <img src="assets/icons/close.svg" class="close" onclick="closeModal('contact_modal')"/>
+          </header>
+          <form>
+            <div>
+              <label>Prénom</label>
+              <input type="text" id="firstname"/>
+            </div>
+            <div>
+              <label>Nom</label>
+              <input type="text" id="lastname"/>
+            </div>
+            <div>
+              <label>Email</label>
+              <input type="email" id="email"/>
+            </div>
+            <div>
+              <label>message</label>
+              <textfield type="text" id="message"/>
+            </div>
+            <button class="contact_button" id="buttonForm">Envoyer</button>
+          </form>
         </div>
-        
-        <img src="assets/icons/closeRed.png" alt="close button" onclick="closeModal('lightbox')" class="closeLightbox"/>
-      </div>      
-    </div>
-    
-    <div id="totalLike" class="totalLike"></div>
+      </div>
+  
+      <section class="portfolio">
+        <div class="sortSystem">
+          <strong>Trier par</strong>    
+          <div class="formfield">
+            <select id="trier" class="trier">
+              <option value="date">Date</option>
+              <option value="pop">Popularité</option>
+              <option value="title">Titre</option>
+            </select> 
+          </div> 
+        </div>          
+        <div id="photos-container" class="photos-container"></div>
+      </section>
+  
+      <div id="lightbox">
+        <div class="lightbox_bg">
+          <div class="control_lightbox_img">
+            <img src="assets/icons/gauche.png" onclick="previousImg()"/>
+            <div class="mediaBox">
+              <img src="" id="imgDyn" class="imgDyn"/>
+              <h3 id="titleDyn" class="titleDyn"></h3>
+            </div>          
+            <video src="" id="vidDyn" class="vidDyn" controls></video>
+            <img src="assets/icons/droit.png" onclick="nextImg()"/>
+          </div>
+          
+          <img src="assets/icons/closeRed.png" alt="close button" onclick="closeModal('lightbox')" class="closeLightbox"/>
+        </div>      
+      </div>
+      
+      <div id="totalLike" class="totalLike"></div>
+    </main>   
     
     <script src="scripts/factories/photographer.js"></script>
     <script src="scripts/factories/photos.js"></script>

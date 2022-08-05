@@ -102,7 +102,7 @@
     width: 170px;
     height: 70px;
     border: none;
-    background-color: #901C1C;
+    background-color: #901c1c;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -198,7 +198,7 @@ form input {
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
-    color: red;
+    color: #901c1c;
 }
 
 .closeLightbox{
@@ -287,4 +287,38 @@ form input {
   
   #photo_modal h3 {
     color: var(--red);
+  }
+
+  .sortSystem{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 18%;
+  }
+
+  .formfield::after{
+    content: '';
+    position: relative;
+    top: -28px;
+    right: -95px;
+    display: block;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-top-color: #f9f9f9;
+    border-width: 6px;
+    border-style: solid;
+    pointer-events: none;
+  }
+
+  .trier{
+    background: #901c1c;
+    color: white;
+    width: 120px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 0 5px;
+    appearance: none;
   }

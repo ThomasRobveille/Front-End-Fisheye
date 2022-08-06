@@ -4,6 +4,11 @@ h2{
     font-size: 42px;
 }
 
+h5{
+    color: black;
+    font-size: 64px;
+}
+
 .photograph-adresse{
     color: #a24141;
     font-weight: 400;
@@ -62,6 +67,9 @@ h2{
     height: 300px;
     overflow: hidden;
     object-fit: cover;
+    border-radius: 10px;
+    position: relative;
+    top: 10px;
 }
 
 .photo-info{
@@ -246,76 +254,76 @@ textarea{
     position: absolute;
     left: 100px;
     z-index: 2;
-  }
+}
   
-  #photo_modal .modal {
+#photo_modal .modal {
     position: relative;
     background-color: white;
     -webkit-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
-            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
     width: 100%;
     padding: 20px 0;
-  }
-  
-  #photo_modal .modal .close {
+}
+
+#photo_modal .modal .close {
     -webkit-filter: brightness(0) saturate(100%) invert(16%) sepia(47%) saturate(3671%) hue-rotate(343deg) brightness(97%) contrast(98%);
-            filter: brightness(0) saturate(100%) invert(16%) sepia(47%) saturate(3671%) hue-rotate(343deg) brightness(97%) contrast(98%);
+    filter: brightness(0) saturate(100%) invert(16%) sepia(47%) saturate(3671%) hue-rotate(343deg) brightness(97%) contrast(98%);
     position: absolute;
     top: 0;
     right: 0;
-  }
-  
-  #photo_modal .modal .close:hover {
+}
+
+#photo_modal .modal .close:hover {
     -webkit-filter: brightness(0) saturate(100%) invert(40%) sepia(18%) saturate(2167%) hue-rotate(324deg) brightness(103%) contrast(91%);
-            filter: brightness(0) saturate(100%) invert(40%) sepia(18%) saturate(2167%) hue-rotate(324deg) brightness(103%) contrast(91%);
-  }
-  
-  #photo_modal .modal nav {
+    filter: brightness(0) saturate(100%) invert(40%) sepia(18%) saturate(2167%) hue-rotate(324deg) brightness(103%) contrast(91%);
+}
+
+#photo_modal .modal nav {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     height: 100%;
     -webkit-box-align: stretch;
-        -ms-flex-align: stretch;
-            align-items: stretch;
-  }
-  
-  #photo_modal .modal nav .previous, #photo_modal .modal nav .next {
+    -ms-flex-align: stretch;
+    align-items: stretch;
+}
+
+#photo_modal .modal nav .previous, #photo_modal .modal nav .next {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     padding: 30px;
     font-size: 50px;
     color: var(--red);
     height: 100%;
     cursor: pointer;
-  }
-  
-  #photo_modal .modal nav .previous:hover, #photo_modal .modal nav .next:hover {
-    color: var(--red-hover);
-  }
-  
-  #photo_modal .modal .photo {
-    border-radius: 5px;
-  }
-  
-  #photo_modal h3 {
-    color: var(--red);
-  }
+}
 
-  .sortSystem{
+#photo_modal .modal nav .previous:hover, #photo_modal .modal nav .next:hover {
+    color: var(--red-hover);
+}
+
+#photo_modal .modal .photo {
+    border-radius: 5px;
+}
+
+#photo_modal h3 {
+    color: var(--red);
+}
+
+.sortSystem{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
     width: 20%;
     height: 100px;
-  }
+}
 
-  .trier{
+.trier{
     background: #901c1c;
     color: white;
     width: 150px;
@@ -331,34 +339,35 @@ textarea{
     position: absolute;
     top: 53%;
     left: 18%;
-  }
+}
 
-  .trier:hover{
+.trier:hover{
     height: 180px;
     float: left;
-  }
+    z-index: 999;
+}
 
-  .trier:hover .arrowDown{
+.trier:hover .arrowDown{
     transform: rotate(180deg);
-  }
+}
 
-  .dropdown{
+.dropdown{
     width: 100%;
     margin: 0px 10px;
     list-style-type: none;
     padding: 1px 0;
     z-index: 999;
-  }
+}
 
-  .dropdown:first-child{
+.dropdown:first-child{
     width: 88%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-  }
+}
 
-  .dropdown_btn{
+.dropdown_btn{
     color: white;
     background: none;
     border:none;
@@ -369,9 +378,10 @@ textarea{
     padding: 18px 0;
     display: flex;
     align-items: flex-start;
-  }
+    cursor: pointer;
+}
 
-  .arrowDown{
+.arrowDown{
     width:10px;
     height:10px;
-  }
+}

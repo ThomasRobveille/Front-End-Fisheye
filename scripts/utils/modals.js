@@ -1,9 +1,9 @@
-//Variable global
-let mediaId, firstname, media, lightboxUp;
+// Variable global
+let mediaId, firstname, lightboxUp; 
 let addLikeCount = 0;
 
 
-//Système ouverture/fermeture de modal
+// Système ouverture/fermeture de modal
 function displayModal(modalId) {
   const modal = document.getElementById(modalId);
   modal.style.display = "flex";
@@ -46,12 +46,6 @@ async function displayLightbox(ElemId){
 }
 
 //Système de tri des photos
-// let selectElem = document.getElementById('trier');
-// selectElem.addEventListener('change', function() {
-//   let valueElem = selectElem.options[selectElem.selectedIndex].value;
-//   sortBy(valueElem);
-// })
-
 async function sortBy(type){
   const id = window.location.href.split('?')[1];
   const medias = await getPhotos();

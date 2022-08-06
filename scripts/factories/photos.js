@@ -20,10 +20,12 @@ function photosFactory(name, data) {
     like.classList.add('like');
     like.id = 'like' + id
     like.setAttribute('onclick', 'addLike(' + id + ')');
-    like.alt = 'like';    
+    like.alt = 'like';  
+    like.ariaLabel = "ajouter un like";  
 
     if (media == 'image') {
       img.setAttribute('onclick', 'displayLightbox(' + id + ')');
+      img.ariaLabel = title;
       img.src = picture;
       img.className = "photo-picture";
       img.id = id;
@@ -40,6 +42,7 @@ function photosFactory(name, data) {
     h3.innerText = title;
     note.id = 'note' + id;
     note.innerText = `${likes}`;
+    note.ariaLabel = "nombre de likes"
     note.appendChild(like);
     info.className = "photo-info";
 

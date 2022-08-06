@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -23,24 +23,24 @@
         <div class="modal">
           <header>
             <h5>Contactez-moi</h5>
-            <img src="assets/icons/close.svg" class="close" onclick="closeModal('contact_modal')" alt="bouton fermeture"/>
+            <img src="assets/icons/close.svg" class="close" onclick="closeModal('contact_modal')" alt="bouton fermeture" aria-label="fermer la modal"/>
           </header>
           <form>
             <div>
-              <label>Prénom</label>
-              <input type="text" id="firstname" required/>
+              <label for="firstname">Prénom</label>
+              <input type="text" id="firstname" name="firstname" required/>
             </div>
             <div>
-              <label>Nom</label>
-              <input type="text" id="lastname" required/>
+              <label for="lastname">Nom</label>
+              <input type="text" id="lastname" name="lastname" required/>
             </div>
             <div>
-              <label>Email</label>
-              <input type="email" id="email" required/>
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required/>
             </div>
             <div>
-              <label>Message</label>
-              <textarea type="text" id="message" required></textarea>
+              <label for="message">Message</label>
+              <textarea type="text" id="message" name="message" required></textarea>
             </div>
             <button class="contact_button" id="buttonForm">Envoyer</button>
           </form>
@@ -53,11 +53,11 @@
           <div class="formfield">
             <ul class="trier" aria-label="trier les photos par ...">
               <li class="dropdown">
-                <button class="dropdown_btn" onclick="sortBy('pop')">Popularité</button>
-                <img class="arrowDown" src="assets/icons/bas.png"/>
+                <button class="dropdown_btn" onclick="sortBy('pop')" aria-label="popularité">Popularité</button>
+                <img class="arrowDown" src="assets/icons/bas.png" alt="flèche bas"/>
               </li>
-              <li class="dropdown"><button class="dropdown_btn" onclick="sortBy('date')">Date</button></li>
-              <li class="dropdown"><button class="dropdown_btn" onclick="sortBy('title')">Titre</button></li>
+              <li class="dropdown"><button class="dropdown_btn" onclick="sortBy('date')" aria-label="date">Date</button></li>
+              <li class="dropdown"><button class="dropdown_btn" onclick="sortBy('title')" aria-label="titre">Titre</button></li>
             </ul>
           </div> 
         </div>          
@@ -67,13 +67,13 @@
       <div id="lightbox">
         <div class="lightbox_bg">
           <div class="control_lightbox_img">
-            <img src="assets/icons/gauche.png" onclick="previousImg()"/>
+            <img src="assets/icons/gauche.png" onclick="previousImg()" alt="image précédente"/>
             <div class="mediaBox">
-              <img src="" id="imgDyn" class="imgDyn"/>
+              <img src="" id="imgDyn" class="imgDyn" alt="image lightbox"/>
               <video src="" id="vidDyn" class="vidDyn" controls></video>
               <h3 id="titleDyn" class="titleDyn"></h3>
             </div>         
-            <img src="assets/icons/droit.png" onclick="nextImg()"/>
+            <img src="assets/icons/droit.png" onclick="nextImg()" alt="image suivante"/>
           </div>
           
           <img src="assets/icons/closeRed.png" alt="close button" onclick="closeModal('lightbox')" class="closeLightbox"/>

@@ -12,7 +12,7 @@
       <a href="index.html"><img src="assets/images/logo.png" alt="logo bouton accueil" class="logo" /></a>
     </header>
     <main id="main">
-      <div class="photograph-header" aria-label="description du photographe">
+      <div id="photograph-header" class="photograph-header" aria-label="description du photographe">
         <button class="contact_button" onclick="displayModal('contact_modal')">Contactez-moi</button>
       </div>
 
@@ -53,12 +53,12 @@
           <div class="formfield">
             <ul class="trier" aria-label="trier les photos par ...">
               <li class="dropdown">
-                <button class="dropdown_btn" onclick="sortBy('pop')" aria-label="popularité">Popularité</button>
-                <img class="arrowDown" src="assets/icons/bas.png" alt="flèche bas"/>
+                <button id="pop" class="dropdown_btn active" onclick="sortBy('pop')" aria-label="popularité">Popularité</button>                
               </li>
-              <li class="dropdown"><button class="dropdown_btn" onclick="sortBy('date')" aria-label="date">Date</button></li>
-              <li class="dropdown"><button class="dropdown_btn" onclick="sortBy('title')" aria-label="titre">Titre</button></li>
+              <li class="dropdown"><button id="date" class="dropdown_btn" onclick="sortBy('date')" aria-label="date">Date</button></li>
+              <li class="dropdown"><button id="title" class="dropdown_btn" onclick="sortBy('title')" aria-label="titre">Titre</button></li>
             </ul>
+            <img id="arrowDown" class="arrowDown" src="assets/icons/bas.png" alt="flèche bas"/>
           </div> 
         </div>          
         <div id="photos-container" class="photos-container"></div>

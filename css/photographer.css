@@ -137,6 +137,7 @@ h5{
     justify-content: space-between;
     padding: 35px;
     margin: auto;
+    transform: scale(0.7);
 }
 
 .modal header {
@@ -347,10 +348,6 @@ textarea{
     z-index: 999;
 }
 
-.trier:hover .arrowDown{
-    transform: rotate(180deg);
-}
-
 .dropdown{
     width: 100%;
     margin: 0px 10px;
@@ -375,13 +372,24 @@ textarea{
     border-bottom: 1px solid white;
     font-size: 20px;
     font-weight: bold;
+    display: none;
     padding: 18px 0;
-    display: flex;
     align-items: flex-start;
     cursor: pointer;
 }
 
 .arrowDown{
+    position: relative;
+    left: 70px;
+    z-index: 9999;
     width:10px;
     height:10px;
+}
+
+.active{
+    display: flex;
+}
+
+.trier:hover .dropdown_btn{
+    display: flex;
 }

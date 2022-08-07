@@ -19,7 +19,7 @@ async function displayData(photographer) {
   const header = document.querySelector('.photograph-header');
   const photographerModel = photographerFactory(photographer);
   const photographHeader = photographerModel.setPhotographerPage();
-  header.appendChild(photographHeader);
+  //header.insertAdjacentHTML('afterend', photographHeader);
 }
 
 function displayPhotos(name, photos) {

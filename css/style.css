@@ -28,6 +28,10 @@ a {
     align-items: center;
 }
 
+a div:first-child{
+    color:#901C1C;
+}
+
 .logo {
     height: 50px;
 }
